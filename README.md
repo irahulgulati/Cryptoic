@@ -1,5 +1,5 @@
 # Cryptoic
 A web app which includes three different cryptographic algorithms
-RSA algorithm
-Diffie_Hellman Key exchange
-Elgamal
+(1) RSA algorithm
+(2) Diffie_Hellman Key exchange
+(3) Elgamal
