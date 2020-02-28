@@ -1,0 +1,13 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+	<title>Cryptoic</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+	{% include 'navbar.html' %}
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

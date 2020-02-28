@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+	<form method="POST"> 
+		{% csrf_token %}
+		<!-- {% csrf_token %} -->
+		<div class="container">
+		<div class="container-fixed">
+		<div class = 'container-fluid'>
+		{{ form.as_p }}
+		<label>Encrypted/Decrypted Message will apppear here</label>
+		<input class = "form-control" type="text" id="fname" value="{{ result }}" readonly placeholder="Encrypted Message"><br><br>
+		<button type="submit" name="encrypt"  value="encrypt" class="btn btn-primary btn-lg">Encrypt</button>
+		<button type="submit" name="decrypt"  value="decrypt" class="btn btn-secondary btn-lg">Decrypt</button>
+		<!-- <input type="submit" name="encrypt"  value="encrypt" /> -->
+		<!-- <input type="submit" name="decrypt"  value="decrypt" /> -->
+		</div>
+		</div>
+	</div>
+		
+		
+	</form>
+
+{% endblock %}

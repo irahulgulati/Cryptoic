@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+	{% block content %}
+		<h1>Contact<h1>
+		<h3>This is contact page </h3>
+		<p>
+			{{my_text}}
+			</p>
+			<ul>
+			{% for i in my_list %}
+				<li>
+					{{i}}
+				</li>
+				
+			{% endfor %}
+			</ul>
+		
+	{% endblock %}
