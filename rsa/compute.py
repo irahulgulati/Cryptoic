@@ -41,8 +41,8 @@ def compute(v,p,q,e,m):
 					cipher = ctext
 					print ('cipher',cipher)
 					return ctext
-				else:
-					ptext= decrypt(cipher,d,n)
+				elif v==2:
+					ptext 	= decrypt(m,d,n)
 					return ptext
 			else:
 				return "Please choose e as 1<e<N"

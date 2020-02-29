@@ -18,7 +18,6 @@ class rsaForm(forms.ModelForm):
 	m 		=		forms.CharField(label='m',widget=forms.TextInput(attrs={"placeholder":"Input a message",
 									'class': 		'form-control',
 									}))
-
 	class Meta:
 		model = rsa
 		fields = [
