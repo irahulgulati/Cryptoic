@@ -4,7 +4,7 @@ from .forms import rsaForm
 from .compute import compute,decrypt
 # Create your views here.
 new = None
-val = None
+val = 0
 def input_values_view(request):
 	result = []
 	global new, val
@@ -12,11 +12,14 @@ def input_values_view(request):
 	if form.is_valid():
 		form2	=form.save(commit=False)
 		if 'encrypt' in request.POST:	
-			encrypt=val=1
+			encrypt=1
+			val=1
 			new= result	=compute(encrypt,form2.p, form2.q, form2.e, form2.m)
-		elif 'decrypt' in request.POST and val == 1:
+		elif 'decrypt' in request.POST and val >= 1:
 			decrypt=2
 			result = compute(decrypt,form2.p, form2.q, form2.e, new)
+			val = 0
+			new = None
 		else:
 			result = "Please encrypt before decrypting"
 	context={
