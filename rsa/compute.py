@@ -42,7 +42,7 @@ def compute(v,p,q,e,m):
 					print ('cipher',cipher)
 					return ctext
 				elif v==2:
-					ptext 	= decrypt(m,d,n)
+					ptext 	= decrypt(cipher,d,n)
 					return ptext
 			else:
 				return "Please choose e as 1<e<N"
