@@ -1,5 +1,5 @@
 import sympy
-cipher = []
+cipher = None
 def gcd(a,b): 
     if(b==0): 
         return a 
@@ -39,6 +39,7 @@ def compute(v,p,q,e,m):
 					ctext = encrypt(m,e,n)
 					global cipher
 					cipher = ctext
+					print ('cipher',cipher)
 					return ctext
 				else:
 					ptext= decrypt(cipher,d,n)
