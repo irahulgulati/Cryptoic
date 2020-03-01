@@ -1,5 +1,4 @@
 import sympy
-cipher = None
 def gcd(a,b): 
     if(b==0): 
         return a 
@@ -26,6 +25,7 @@ def decrypt(cypher_text:str,pri_key,n):
 	return plaintext
 
 def compute(v,p,q,e,m):
+	message = {}
 	if sympy.isprime(p):
 		if sympy.isprime(q):
 			n = p*q
@@ -34,16 +34,14 @@ def compute(v,p,q,e,m):
 			newgcd=gcd(phiN,e)
 			if newgcd == 1:
 				d 	= privatekey(e,phiN)
-				print ('n',n,d)
 				if v==1:
 					ctext = encrypt(m,e,n)
-					global cipher
-					cipher = ctext
-					print ('cipher',cipher)
-					return ctext
-				elif v==2:
-					ptext 	= decrypt(cipher,d,n)
-					return ptext
+					ptext 	= decrypt(ctext,d,n)
+					message = {
+						'plain':ptext,
+						'crypted':ctext,
+					}
+					return message
 			else:
 				return "Please choose e as 1<e<N"
 		else:
