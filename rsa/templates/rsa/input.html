@@ -1,24 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-	<form method="POST"> 
-		{% csrf_token %}
-		<!-- {% csrf_token %} -->
-		<div class="container">
-		<div class="container-fixed">
-		<div class = 'container-fluid'>
-		{{ form.as_p }}
-		<label>Encrypted Message</label>
-		<input class = "form-control" type="text" id="fname" value="{{ ciphertext }}" readonly placeholder="Encrypted Message"><br>
-		<label>Decrypted Message</label>
-		<input class = "form-control" type="text" id="fname" value="{{ plaintext }}" readonly placeholder="Encrypted Message"><br>
-		<button type="submit" name="encrypt"  value="encrypt" class="btn btn-primary btn-lg">Encrypt</button>
-		<!-- <input type="submit" name="encrypt"  value="encrypt" /> -->
-		<!-- <input type="submit" name="decrypt"  value="decrypt" /> -->
-		</div>
-		</div>
-	</div>
+<script>
+	function msg(){
+		 if (document.getElementById("ptext").type == "hidden" && document.getElementById("ptext").value.length != 0) {
+			document.getElementById("ptext").type = 'show';
+			document.getElementById("decrypt").disabled = true;
+			document.getElementById("decryptlabel").style.display = 'block';
+  		} 
+		else{
+				document.getElementById("ptext").type	 = 'hidden';
+				alert("Please encrypt first");
+			}
+
 		
+	}
+	</script>
+<div class="text-center"><h3>RSA Algorithm</h3></div>
+<br>
+<div class="container col-sm-6 col-md-6 col-lg-6 float-left">
+	<div class="card text-black bg-white mb-3" style="max-width: 38rem;">
+		<div class="card-header bg-white">Given a large prime p = 65537, a primary root g =3 </div>
+		<div class="card-body">
+			<form method="POST"> 
+				{% csrf_token %}
+				<!-- {% csrf_token %} -->
+				{{ form.as_p }}
+				<button type="submit" name="encrypt"  value="encrypt" class="btn btn-outline-dark btn-lg text-center">Encrypt</button>
+				<button type="button"  name="decrypt" id = "decrypt" value="decrypt" class="btn btn-outline-dark btn-lg"  onclick="msg()">Decrypt</button>
+			</form>
+		</div>
+	  </div>
+		</div>
+		<div class="container col-sm-12 col-md-12 col-lg-6 float-right">
+			<div class="card text-black bg-white mb-3" style="max-width: 38rem;">
+				<div class="card-header bg-white">Output will appear here</div>
+				<div class="card-body">
+					<label>Private Key</label>
+					<input class = "form-control" type="text" id="privatekey" value="{{ result.privateKey }}" readonly placeholder="Encrypted Message"><br>
+					<label>n=(p-1)(q-1), n: </label>
+					<input class = "form-control" type="text" id="modn" value="{{ result.phiN }}" readonly placeholder="Euler Totient value"><br>
+					<label>Encrypted Message</label>
+					<input class = "form-control" id="cipher" type="text" value="{{ result.crypted }}" readonly placeholder="Encrypted Message"><br>
+					<label  id="decryptlabel" style= "display:none;">Decrypted Message</label>
+					<input class = "form-control" type="hidden" id="ptext" readonly value="{{ result.plain }}" placeholder="Decrypted Message" display = "none"><br>
+				</div>
+			  </div>
+			
 		
+		</div>
 	</form>
+	
 
 {% endblock %}

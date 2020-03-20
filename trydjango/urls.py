@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pages.views import home_view,contact_view
+from django.views.generic import TemplateView
 urlpatterns = [
-    path('rsa/', include('rsa.urls')),
     path('admin/', admin.site.urls),
     path('',home_view,name = 'product-detail'),
+    path('rsa/', include('rsa.urls')),
+    path('elgamalre/', include('elgamalre.urls')),
+    path('elgamaluni/', include('elgamaluni.urls')),
+    path('comingsoon/', TemplateView.as_view(template_name='comingsoon.html'))
 ]

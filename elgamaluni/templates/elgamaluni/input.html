@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center"><h3>Elgamal Universal Re-encryption Algorithm</h3></div>
+<div class="container col-sm-12 col-md-12 col-lg-6 float-left">
+	<br>
+	<div class="card text-black bg-white mb-3" style="max-width: 38rem;">
+		<div class="card-header bg-white">Given a large prime p = 65537, a primary root g =3 </div>
+		<div class="card-body">
+			<form method="POST"> 
+				{% csrf_token %}
+				<!-- {% csrf_token %} -->
+				{{ form.as_p }}
+				<button type="submit" name="encrypt"  value="encrypt" class="btn btn-outline-dark btn-lg text-center">Encrypt</button>
+		
+			</form>
+		</div>
+	  </div>
+	
+</div>
+
+<div class="container col-sm-12 col-md-12 col-lg-6 float-right ">
+	<br>
+	<div class="card text-black bg-white mb-3" style="max-width: 38rem; max-height: 158rem;">
+		<div class="card-header bg-white">Output will appear here</div>
+		<div class="card-body">
+			<label><strong>Public Key, A is :</strong></label>
+			<p class="d-inline">{{result.A}}</p><br>
+			<label><strong>X is :</strong></label>
+			<p class="d-inline">{{result.X}}</p><br>
+			<label><strong>Y is :</strong></label>
+			<p class="d-inline">{{result.Y}}</p><br>
+			<label><strong>W is :</strong></label>
+			<p class="d-inline">{{result.W}}</p><br>
+			<label><strong>Z is :</strong></label>
+			<p class="d-inline">{{result.Z}}</p><br>
+			<label><strong>X' is :</strong></label>
+			<p class="d-inline">{{result.Xdash}}</p><br>
+			<label><strong>Y' is :</strong></label>
+			<p class="d-inline">{{result.Ydash}}</p><br>
+			<label><strong>W' is :</strong></label>
+			<p class="d-inline">{{result.Wdash}}</p><br>
+			<label><strong>Z' is :</strong></label>
+			<p class="d-inline">{{result.Zdash}}</p><br>
+		</div>
+	  </div>
+	
+	
+</div>
+
+{% endblock %}

@@ -24,30 +24,20 @@ def decrypt(cypher_text:str,pri_key,n):
 	plaintext=''.join(pt)
 	return plaintext
 
-def compute(v,p,q,e,m):
-	message = {}
-	if sympy.isprime(p):
-		if sympy.isprime(q):
-			n = p*q
-			phiN=(p-1)*(q-1)
-			# return phiN
-			newgcd=gcd(phiN,e)
-			if newgcd == 1:
-				d 	= privatekey(e,phiN)
-				if v==1:
-					ctext = encrypt(m,e,n)
-					ptext 	= decrypt(ctext,d,n)
-					message = {
-						'plain':ptext,
-						'crypted':ctext,
-						'privateKey':d,
-						'phiN':phiN
-					}
-					return message
-			else:
-				return "Please choose e as 1<e<N"
-		else:
-			return "Please enter Prime numbers"
-	else:
-		return "Please enter Prime numbers"
-	
+def compute(x,m,r1,r2):
+	p=65537
+	g=3
+	y		=	pow(g,x,p) #Calculating Public key
+	c1		=	pow(g,r1,p)  #calculating c1
+	c2		=	m*(pow(y,r1)%p)
+	# c2new	=	c2 % p  #Calculating c2
+	c1prime	=	c1*(pow(g,r2,p))
+	c2prime	=	c2*(pow(y,r2,p))
+	result = {
+		'y':y,
+		'c1':c1,
+		'c2':c2,
+		'c1p':c1prime,
+		'c2p':c2prime
+	}
+	return result
