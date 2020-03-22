@@ -6,7 +6,7 @@ A web app which includes three different cryptographic algorithms
 
 
 # Hosted on AWS
-[Website Link](http://cyptoiclb-1949579784.us-east-2.elb.amazonaws.com/)
+Website has been decomissioned
 
-# Current Architecture
+# Architecture when it was hosted on AWS
 ![Current Architecture](https://github.com/irahulgulati/Cryptoic/blob/master/Architecture.png)
