@@ -31,13 +31,17 @@ def compute(x,m,r1,r2):
 	c1		=	pow(g,r1,p)  #calculating c1
 	c2		=	m*(pow(y,r1)%p)
 	# c2new	=	c2 % p  #Calculating c2
-	c1prime	=	c1*(pow(g,r2,p))
-	c2prime	=	c2*(pow(y,r2,p))
+	c1prime	=	(c1*pow(g,r2))%p
+	c2prime	=	(c2*pow(y,r2,p))%p
+	decrypt	=	pow(c1,x,p)
+	finaldecrypt	=	int((c2/decrypt) % p)
+	print(finaldecrypt)
 	result = {
 		'y':y,
 		'c1':c1,
 		'c2':c2,
 		'c1p':c1prime,
-		'c2p':c2prime
+		'c2p':c2prime,
+		'decrypt':finaldecrypt
 	}
 	return result

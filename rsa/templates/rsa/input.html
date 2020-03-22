@@ -1,20 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<script>
-	function msg(){
-		 if (document.getElementById("ptext").type == "hidden" && document.getElementById("ptext").value.length != 0) {
-			document.getElementById("ptext").type = 'show';
-			document.getElementById("decrypt").disabled = true;
-			document.getElementById("decryptlabel").style.display = 'block';
-  		} 
-		else{
-				document.getElementById("ptext").type	 = 'hidden';
-				alert("Please encrypt first");
-			}
 
-		
-	}
-	</script>
 <div class="text-center"><h3>RSA Algorithm</h3></div>
 <br>
 <div class="container col-sm-6 col-md-6 col-lg-6 float-left">

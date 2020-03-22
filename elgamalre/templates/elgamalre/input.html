@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
+<script>
+	function msg(){
+		 if (document.getElementById("ptext").type == "hidden" && document.getElementById("ptext").value.length != 0) {
+			document.getElementById("ptext").type = 'show';
+			document.getElementById("decrypt").disabled = true;
+			document.getElementById("decryptlabel").style.display = 'block';
+  		} 
+		else{
+				document.getElementById("ptext").type	 = 'hidden';
+				alert("Please encrypt first");
+			}
+
+		
+	}
+	</script>
 <div class="text-center"><h3>Elgamal Re-encryption Algorithm</h3></div>
 <div class="container col-sm-12 col-md-12 col-lg-6 float-left">
 	<br>
@@ -11,7 +26,7 @@
 				<!-- {% csrf_token %} -->
 				{{ form.as_p }}
 				<button type="submit" name="encrypt"  value="encrypt" class="btn btn-outline-dark btn-lg text-center">Encrypt</button>
-		
+				<button type="button"  name="decrypt" id = "decrypt" value="decrypt" class="btn btn-outline-dark btn-lg"  onclick="msg()">Decrypt</button>
 			</form>
 		</div>
 	  </div>
@@ -31,6 +46,8 @@
 			<input class = "d-inline form-control" type="text" id="fname" value="{{ result.c1p }}" readonly placeholder=" C1' Value "><br>
 			<label>C2'=c2 * y^r1  mod p, Your C2' is:</label>
 			<input class = "d-inline form-control" type="text" id="fname" value="{{ result.c2p }}" readonly placeholder="C2' Value"><br>
+			<label  id="decryptlabel" style= "display:none;">Decrypted Message</label>
+					<input class = "form-control" type="hidden" id="ptext" readonly value="{{ result.decrypt }}" placeholder="Decrypted Message" display = "none"><br>
 		</div>
 	  </div>
 	

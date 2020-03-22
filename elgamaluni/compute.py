@@ -1,29 +1,36 @@
 import random
-def compute(pr,m,r,s):
+from .modinverse import modInverse, modDivide
+
+def compute(pr,m,s,t):
     p=65537
     g=3
     r1=random.randint(1,100)
     r2=random.randint(1,100)
-    A   =   pow(g,pr,p)
-    X   =   (pow(A,r) * m) % p
-    Y   =   (pow(g,r)) % p
-    W   =   pow(A,s) % p
-    Z   =   pow(g,s) % p
-    rdash   =   r + s*r1
-    sdash   =   s*r2
-    Xdash   =   (pow(A,rdash)*m) % p
-    Ydash   =   pow(g,rdash) % p
-    Wdash   =   pow(A,sdash) % p
-    Zdash   =   pow(g,sdash) % p
-    checkfordecryption   =   int(W/(pow(Z,pr) % p))
+    y   =   pow(g,pr)%p
+
+    X   =   pow(g,r1)%p
+    Y   =  (m*pow(y,r1))%p
+    W   =   pow(g,r2,p)
+    Z   =   pow(y,r2,p)
+    rdash   =  (r1+r2*s)
+    sdash   =  (r2*t)
+    Xdash   =  pow(g,rdash)%p
+    Ydash   =  (pow(y,rdash)*m)%p 
+    Wdash   =   pow(g,sdash,p)
+    Zdash   =   pow(y,sdash,p)
+    checkfordecryption   =   int(Z/(pow(W,pr) % p))
+    print('##################',checkfordecryption)
     if checkfordecryption == 1:
-        decryptedMessage    =   X/pow(Y,pr)
-        print(decryptedMessage)
+        xpower    =  pow(X,pr)
+        decryptedMessage=modDivide(Y,xpower,p)
+        # decryptedMessage    =  decryptedMessage
+        print('##################################################',decryptedMessage)
     else:
         decryptedMessage    =   "Decryption failed"
+        print(decryptedMessage)
 
     result={
-        'A':    A,
+        'A':    y,
         'X':    X,
         'Y':    Y,  
         'W':    W,
@@ -33,6 +40,7 @@ def compute(pr,m,r,s):
         'Xdash':    Xdash,
         'Ydash':    Ydash,
         'Wdash':    Wdash,
-        'Zdash':    Zdash
+        'Zdash':    Zdash,
+        'decrypted': decryptedMessage
             }
     return result
