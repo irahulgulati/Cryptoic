@@ -1,10 +1,25 @@
 {% extends "base.html" %}
-	{% block content %}
-		<div class="container">
-		  <div class="jumbotron col-lg-12 col-sm-12 col-md-16">
-		    <h1>Cryptographic Algorithms</h1>
-			<p>Use different cryptographic algorithms to encrypt or decrypt messages </p>
-			<p>Let's Begin, Choose any algorithm from NavBar</p>
-			</div>
-		</div>
-	{% endblock %}
+	{% load static %}
+		{% block content %}
+				<div class="container-fluid">
+					<div class="col-lg-6 col-md-6 col-s-6 col-xs-6 p-2  float-left">
+						<h6 class="text-muted"> <i>Cryptographic Algorithms</i> </h6>
+					<h1><i><b>RSA,</b></i></h1>
+					<h1><i><b>Elgamal Re-encryption,</b></i></h1>
+					<h1><i><b>Elgamal Universal Re-encryption</b></i></h1>
+					<i><p class="text-muted" style="margin: 0;padding: 0;">For encryption and decryption of the messages.</p></i>
+					<i><small><p class="text-muted" style="margin: 0;padding: 0;">Created By: Rahul</p></small></i>
+					<i><small><p class="text-muted">Github: irahulgulati</p></small></i>
+					<div class="alert alert-info" id="hdntagfrontpage" role="alert" style="display: none;">
+						Begin by choosing any algorithm from navbar
+					</div>
+					<button type="button" class="btn btn-primary btn-lg rounded" onclick="document.getElementById('hdntagfrontpage').style.display='block';">Let's Begin</button>
+					</div>
+					<div class="col-lg-6  col-md-6 col-s-6 col-xs-6 float-right">
+						<img src="{% static 'img/crypto.png' %}" class="img-fluid" alt="Responsive image" style="height: 20rem; width:40rem">
+					</div>
+				</div>
+
+
+			
+		{% endblock %}
