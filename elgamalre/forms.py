@@ -26,8 +26,3 @@ class elgamalreForm(forms.ModelForm):
 			'rand2'
 
 				]
-	# def clean_q(self,*args,**kwargs):
-	# 	q = self.cleaned_data.get("q")
-	# 	if q < 7:
-	# 		raise forms.ValidationError("Please enter second prime number greater that 7")
-	# 	return q

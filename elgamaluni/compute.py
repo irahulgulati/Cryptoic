@@ -7,7 +7,6 @@ def compute(pr,m,s,t):
     r1=random.randint(1,100)
     r2=random.randint(1,100)
     y   =   pow(g,pr)%p
-
     X   =   pow(g,r1)%p
     Y   =  (m*pow(y,r1))%p
     W   =   pow(g,r2,p)
@@ -19,16 +18,12 @@ def compute(pr,m,s,t):
     Wdash   =   pow(g,sdash,p)
     Zdash   =   pow(y,sdash,p)
     checkfordecryption   =   int(Z/(pow(W,pr) % p))
-    print('##################',checkfordecryption)
     if checkfordecryption == 1:
         xpower    =  pow(X,pr)
         decryptedMessage=modDivide(Y,xpower,p)
-        # decryptedMessage    =  decryptedMessage
-        print('##################################################',decryptedMessage)
     else:
         decryptedMessage    =   "Decryption failed"
         print(decryptedMessage)
-
     result={
         'A':    y,
         'X':    X,

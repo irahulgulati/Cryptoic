@@ -4,9 +4,9 @@ from django.urls import reverse
 
 # Create your models here.
 class rsa(models.Model):
-	p 			=models.IntegerField(max_length=120)
-	q			=models.IntegerField(blank=False,null=False,max_length=120)
-	e 			=models.IntegerField(max_length=120)
+	p 			=models.IntegerField(blank=False)
+	q			=models.IntegerField(blank=False)
+	e 			=models.IntegerField(blank=False)
 	m			=models.CharField(max_length=120)
 
 	def get_absolute_url(self):
