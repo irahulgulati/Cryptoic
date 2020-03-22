@@ -5,6 +5,7 @@ A web app which includes three different cryptographic algorithms
 3. Elgamal Universal Re-encryption
 
 # Setup
+0. 	Python 3.0+
 1.	Setup virtual environment(venv)(optional).
 2.	Install all dependent libraries as mentioned in requirements.txt
 3.	Run the app using command "python manage.py runserver"
