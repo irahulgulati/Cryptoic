@@ -10,3 +10,6 @@ Website has been decomissioned
 
 # Architecture when it was hosted on AWS
 ![Current Architecture](https://github.com/irahulgulati/Cryptoic/blob/master/Architecture.png)
+
+# Homepage of app
+![Homepage design](https://github.com/irahulgulati/Cryptoic/blob/master/UI.PNG)
