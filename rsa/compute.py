@@ -1,4 +1,5 @@
 import sympy
+import math
 def gcd(a,b): 
     if(b==0): 
         return a 
@@ -32,6 +33,7 @@ def compute(v,p,q,e,m):
 			phiN=(p-1)*(q-1)
 			# return phiN
 			newgcd=gcd(phiN,e)
+			print(newgcd)
 			if newgcd == 1:
 				d 	= privatekey(e,phiN)
 				if v==1:
@@ -45,7 +47,10 @@ def compute(v,p,q,e,m):
 					}
 					return message
 			else:
-				return "Please choose e as 1<e<N"
+				message = {
+						'msg':"Please choose e as 1<e<N",
+					}
+				return message
 		else:
 			return "Please enter Prime numbers"
 	else:
