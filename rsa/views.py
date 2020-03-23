@@ -18,5 +18,4 @@ def input_values_view(request):
 		'result':result,
 		'length':len(result)
 				}
-	print(context)
 	return render(request, "rsa/input.html",context)

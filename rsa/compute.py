@@ -33,7 +33,6 @@ def compute(v,p,q,e,m):
 			phiN=(p-1)*(q-1)
 			# return phiN
 			newgcd=gcd(phiN,e)
-			print(newgcd)
 			if newgcd == 1:
 				d 	= privatekey(e,phiN)
 				if v==1:
@@ -52,7 +51,13 @@ def compute(v,p,q,e,m):
 					}
 				return message
 		else:
-			return "Please enter Prime numbers"
+			message = {
+				'msg': "Please enter Prime numbers"
+			}
+			return message
 	else:
-		return "Please enter Prime numbers"
+		message	=	{
+			'msg':  "Please enter Prime numbers"
+		}
+		return message
 	

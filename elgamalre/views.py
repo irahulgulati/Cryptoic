@@ -5,8 +5,6 @@ from .compute import compute
 
 def input_value_view(request):
     result=[]
-    x=None
-    y=None
     form = elgamalreForm(request.POST or None)
     if form.is_valid():
         form2=form.save(commit=False)

@@ -10,7 +10,6 @@ def input_values_view(request):
         form2=form.save(commit=False)
         if 'encrypt' in request.POST:
             result  =   compute(form2.pr,form2.m,form2.rand1,form2.rand2)
-            print(result)
         else:
             result = "Something went wrong"
     context = {
